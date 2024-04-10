@@ -40,8 +40,17 @@ public class Invoice {
         this.items = items;
     }
 
-    public int getTotal(){
-        return 0;
+    public int getTotal() {
+
+        // int total =0;
+        // for (Item item : items) {
+        // total +=item.getImporte();
+        // }
+
+        return items.stream()
+                .map(item -> item.getImporte())
+                .reduce(0, (sum, importe) -> sum + importe);
+        
     }
 
 }
