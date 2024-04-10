@@ -3,6 +3,7 @@ package com.ary.curso.di.factura.springbootdifactura.models;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -11,9 +12,10 @@ public class Invoice {
     @Autowired
     private Client client;
 
-    @Value("${invoice.desciption}")
+    @Value("${invoice.desciption.office}")
     private String description;
     @Autowired
+    @Qualifier("itemsInvoiceOffice")
     private List<Item> items;
 
     public Client getClient() {
